@@ -2,7 +2,8 @@
 var express = require('express'),
     path    = require('path'),
     logger  = require('morgan'),
-    stylus  = require('stylus');
+    stylus  = require('stylus'),
+    nib     = require('nib');
 
 var app = express();
 /*** END Requirements ***/
@@ -20,7 +21,9 @@ app.use(stylus.middleware({
 	compile: function(str, path) {
 		return stylus(str)
 		.set('filename', path)
-		.set('compress', true);
+		.set('compress', false)
+		//.set('sourcemap', true)
+		.use(nib());
 	}
 }));
 
