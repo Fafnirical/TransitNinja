@@ -13,9 +13,7 @@ app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-/*app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());*/
+
 app.use(stylus.middleware({
 	src: path.join(__dirname, 'src'),
 	dest: path.join(__dirname, 'public'),
@@ -25,6 +23,7 @@ app.use(stylus.middleware({
 		.set('compress', true);
 	}
 }));
+
 app.use(express.static(
 	path.join(__dirname, 'public')
 ));
@@ -32,8 +31,12 @@ app.use(express.static(
 
 /*** BEGIN Routes ***/
 // <root>/ displays the standard index things
-var routes = require('./routes/index');
-app.use('/', routes);
+var index = require(path.join(__dirname, 'routes/index'));
+app.use('/', index);
+
+// <root>/api/ is the root endpoint for the APIs; currently, it gives the list of APIs
+var api = require(path.join(__dirname, 'routes/api'));
+app.use('/api', api);
 
 // <root>/users displays a list of users
 //var users  = require('./routes/users');
