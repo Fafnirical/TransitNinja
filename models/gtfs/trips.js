@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Trip', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	route_id: {
 		type: String,
 		required: true,
@@ -41,4 +45,4 @@ module.exports = mongoose.model('Trip', {
 		min: 0,
 		max: 2
 	}
-});
+}, 'trips');

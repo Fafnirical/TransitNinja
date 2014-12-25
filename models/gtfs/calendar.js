@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Calendar', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	service_id: {
 		type: String,
 		required: true,
@@ -58,4 +62,4 @@ module.exports = mongoose.model('Calendar', {
 		required: true,
 		match: /\d{4}\d{2}\d{2}/
 	}
-});
+}, 'calendar');

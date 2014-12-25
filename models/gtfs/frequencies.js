@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Frequency', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	trip_id: {
 		type: String,
 		required: true,
@@ -25,4 +29,4 @@ module.exports = mongoose.model('Frequency', {
 		min: 0,
 		max: 1
 	}
-});
+}, 'frequencies');

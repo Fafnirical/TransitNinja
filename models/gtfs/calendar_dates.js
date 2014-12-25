@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('CalendarDate', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	service_id: {
 		type: String,
 		required: true,
@@ -17,4 +21,4 @@ module.exports = mongoose.model('CalendarDate', {
 		min: 1,
 		max: 2
 	}
-});
+}, 'calendardates');

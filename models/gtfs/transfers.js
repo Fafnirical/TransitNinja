@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Transfer', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	from_stop_id: {
 		type: String,
 		required: true,
@@ -20,4 +24,4 @@ module.exports = mongoose.model('Transfer', {
 	min_transfer_time: {
 		type: Number
 	}
-});
+}, 'transfers');

@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Agency', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	agency_id: {
 		type: String,
 		index: true
 	},
 	agency_name: {
 		type: String,
-		required: true,
-		index: true
+		required: true
 	},
 	agency_url: {
 		type: String,
@@ -30,4 +33,4 @@ module.exports = mongoose.model('Agency', {
 		type: String
 		//TODO match: /url/
 	}
-});
+}, 'agencies');

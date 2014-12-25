@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Shape', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	shape_id: {
 		type: String,
 		required: true,
@@ -27,4 +31,4 @@ module.exports = mongoose.model('Shape', {
 		type: Number,
 		min: 0
 	}
-});
+}, 'shapes');

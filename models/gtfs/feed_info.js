@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('FeedInfo', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	feed_publisher_name: {
 		type: String,
 		required: true,
@@ -26,4 +30,4 @@ module.exports = mongoose.model('FeedInfo', {
 	feed_version: {
 		type: String
 	}
-});
+}, 'feedinfo');

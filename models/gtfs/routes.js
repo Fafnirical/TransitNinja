@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Route', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	route_id: {
 		type: String,
 		required: true,
@@ -36,4 +40,4 @@ module.exports = mongoose.model('Route', {
 	route_text_color: {
 		type: String
 	}
-});
+}, 'routes');

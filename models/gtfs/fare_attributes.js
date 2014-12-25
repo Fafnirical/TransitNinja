@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('FareAttribute', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	fare_id: {
 		type: String,
 		required: true,
@@ -20,7 +24,7 @@ module.exports = mongoose.model('FareAttribute', {
 		min: 0,
 		max: 1
 	},
-	tranfsers: {
+	transfers: {
 		type: Number,
 		required: false,
 		// the GTFS spec gives this as "required", but (empty) is a valid value
@@ -30,4 +34,4 @@ module.exports = mongoose.model('FareAttribute', {
 	transfer_duration: {
 		type: Number
 	}
-});
+}, 'fareattributes');

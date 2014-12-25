@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('FareRule', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	fare_id: {
 		type: String,
 		required: true,
@@ -18,4 +22,4 @@ module.exports = mongoose.model('FareRule', {
 	contains_id: {
 		type: String
 	}
-});
+}, 'farerules');

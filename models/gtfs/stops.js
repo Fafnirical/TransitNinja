@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Stop', {
+	agency_key: {
+		type: String,
+		index: true
+	},
 	stop_id: {
 		type: String,
 		required: true,
@@ -47,4 +51,4 @@ module.exports = mongoose.model('Stop', {
 		min: 0,
 		max: 2
 	}
-});
+}, 'stops');
