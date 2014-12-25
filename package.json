@@ -5,20 +5,39 @@
 	"author": {
 		"name": "Wade Burelbach"
 	},
+	"keywords": [
+		"transit",
+		"public transit",
+		"mass transit",
+		"transportation",
+		"bus",
+		"subway",
+		"light rail",
+		"rail",
+		"streetcar",
+		"bicycle",
+		"api"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Fafnirical/TransitNinja"
 	},
 	"homepage": "http://transit.ninja/",
 	"dependencies": {
-		"csv-parse": "0.0.6",
-		"debug": "^2.0.0",
-		"express": "^4.9.4",
-		"jade": "^1.7.0",
-		"mongoose": "^3.8.16",
-		"morgan": "^1.3.1",
-		"nib": "^1.0.4",
-		"stylus": "^0.48.1"
+		"async": "~0.9.0",
+		"bower": "~1.3.12",
+		"csv-parse": "~0.0.6",
+		"debug": "~2.0.0",
+		"express": "~4.9.4",
+		"jade": "~1.7.0",
+		"mkdirp": "~0.5.0",
+		"mongodb": "~1.4.23",
+		"mongoose": "~3.8.16",
+		"morgan": "~1.3.1",
+		"nib": "~1.0.4",
+		"request": "~2.51.0",
+		"stylus": "~0.48.1",
+		"unzip": "~0.1.11"
 	},
 	"scripts": {
 		"start": "node ./bin/www"
