@@ -1,5 +1,12 @@
 module.exports = {
-	mongo_url: process.env.MONGOHQ_URL || 'mongodb://localhost:27017/gtfs',
+	database: {
+		name: 'gtfs',
+		username: 'username',
+		password: 'password',
+		host: 'localhost',
+		port: 5432,
+		type: 'postgres'
+	},
 	agencies: [
 		{
 			agency_key: 'capital-metro',
