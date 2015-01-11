@@ -1,25 +1,28 @@
-var mongoose = require('mongoose');
-
-module.exports = mongoose.model('FareRule', {
-	agency_key: {
-		type: String,
-		index: true
-	},
-	fare_id: {
-		type: String,
-		required: true,
-		index: true
-	},
-	route_id: {
-		type: String
-	},
-	origin_id: {
-		type: String
-	},
-	destination_id: {
-		type: String
-	},
-	contains_id: {
-		type: String
-	}
-}, 'farerules');
+module.exports = function(sequelize, DataTypes) {
+	return sequelize.define('FareRule', {
+		agency_key: {
+			type: DataTypes.STRING
+		},
+		fare_id: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true
+			}*/
+		},
+		route_id: {
+			type: DataTypes.STRING
+		},
+		origin_id: {
+			type: DataTypes.STRING
+		},
+		destination_id: {
+			type: DataTypes.STRING
+		},
+		contains_id: {
+			type: DataTypes.STRING
+		}
+	}, {
+		tableName: 'fare_rules'
+	});
+};

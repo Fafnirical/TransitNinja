@@ -1,36 +1,50 @@
-var mongoose = require('mongoose');
+module.exports = function(sequelize, DataTypes) {
+	return sequelize.define('Agency', {
+		agency_key: {
+			type: DataTypes.STRING
+		},
+		agency_id: {
+			type: DataTypes.STRING
+		},
+		agency_name: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		agency_url: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true,
+				isUrl: true
+			}*/
+		},
+		agency_timezone: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true
+			}*/
+		},
+		agency_lang: {
+			type: DataTypes.STRING
+		},
+		agency_phone: {
+			type: DataTypes.STRING,
+			/* TODO
+			validate: {
+				isPhone: function(value) {
 
-module.exports = mongoose.model('Agency', {
-	agency_key: {
-		type: String,
-		index: true
-	},
-	agency_id: {
-		type: String,
-		index: true
-	},
-	agency_name: {
-		type: String,
-		required: true
-	},
-	agency_url: {
-		type: String,
-		required: true
-		//TODO match: /url/
-	},
-	agency_timezone: {
-		type: String,
-		required: true
-	},
-	agency_lang: {
-		type: String
-	},
-	agency_phone: {
-		type: String
-		//TODO match: /phonenumber/
-	},
-	agency_fare_url: {
-		type: String
-		//TODO match: /url/
-	}
-}, 'agencies');
+				}
+			}
+			*/
+		},
+		agency_fare_url: {
+			type: DataTypes.STRING,
+			/*validate: {
+				isUrl: true
+			}*/
+		}
+	}, {
+		tableName: 'agencies'
+	});
+};

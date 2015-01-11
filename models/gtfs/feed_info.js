@@ -1,33 +1,46 @@
-var mongoose = require('mongoose');
-
-module.exports = mongoose.model('FeedInfo', {
-	agency_key: {
-		type: String,
-		index: true
-	},
-	feed_publisher_name: {
-		type: String,
-		required: true,
-		index: true
-	},
-	feed_publisher_url: {
-		type: String,
-		required: true
-		//TODO: match: /url/
-	},
-	feed_lang: {
-		type: String,
-		required: true
-	},
-	feed_start_date: {
-		type: Number,
-		match: /\d{4}\d{2}\d{2}/
-	},
-	feed_end_date: {
-		type: Number,
-		match: /\d{4}\d{2}\d{2}/
-	},
-	feed_version: {
-		type: String
-	}
-}, 'feedinfo');
+module.exports = function(sequelize, DataTypes) {
+	return sequelize.define('FeedInfo', {
+		agency_key: {
+			type: DataTypes.STRING
+		},
+		feed_publisher_name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true
+			}*/
+		},
+		feed_publisher_url: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true,
+				isUrl: true
+			}*/
+		},
+		feed_lang: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			/*validate: {
+				notEmpty: true
+			}*/
+		},
+		feed_start_date: {
+			type: DataTypes.STRING,
+			/*validate: {
+				is: /\d{4}\d{2}\d{2}/
+			}*/
+		},
+		feed_end_date: {
+			type: DataTypes.STRING,
+			/*validate: {
+				is: /\d{4}\d{2}\d{2}/
+			}*/
+		},
+		feed_version: {
+			type: DataTypes.STRING
+		}
+	}, {
+		tableName: 'feed_info'
+	});
+};
